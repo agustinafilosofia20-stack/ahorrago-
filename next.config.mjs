@@ -1,6 +1,14 @@
-/** @type {import('next').NextConfig} */
+import withPWA from "next-pwa";
+
 const nextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  turbopack: {}, // 👈 esto desactiva conflicto con webpack
 };
 
-export default nextConfig;
+export default withPWA({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+})(nextConfig);
+
+
